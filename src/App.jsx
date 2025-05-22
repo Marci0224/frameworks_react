@@ -6,15 +6,19 @@ import './App.css'
 import { Frameworks } from './components/Frameworks'
 
 function App() {
-  console.log(randomColor(0,255));
+  //console.log(randomColor(0,255));
   const [bgColor,setBgColor]=useState('rgb(128, 128, 128)');
 
+  const handleClick=()=>{
+    console.log("klikk volt");
+    setBgColor(randomColor(0,255));
+  }
   return (
     <>
-      <Button style={{color:`${randomColor(0,255)}`}}
-        onClick=""
-      >{randomColor(0,255)}</Button>
-      <Frameworks/>
+      <button style={{color:bgColor}}
+        onClick={handleClick}
+      >{bgColor}</button>
+      <Frameworks bgColor={bgColor}/>
     </>
   )
 }
